@@ -91,14 +91,13 @@ $discord->on('ready', function (Discord $discord) {
                             $builder = MessageBuilder::new();
                             $builder->addEmbed($pontoMsg);
                             $actionRow = ActionRow::new();
-                            $closeticket = Button::new(Button::STYLE_DANGER, 'fecharPonto')->setLabel('⏰ FINALIZAR PATRULHA');
+                            $closeticket = Button::new(Button::STYLE_DANGER, "fecharPonto$channel->id")->setLabel('⏰ FINALIZAR PATRULHA');
                             $actionRow->addComponent($closeticket);
                             $builder->addComponent($actionRow);
                             $channel->sendMessage($builder);
 
-                            $closeticket->setListener(function (Interaction $interaction) use ($discord) {
-                                $i = false;
-                                if ($interaction->data->custom_id === "fecharPonto") {
+                            $closeticket->setListener(function (Interaction $interaction) use ($discord, $channel) {
+                                if ($interaction->data->custom_id === "fecharPonto$channel->id") {
                                     $channel = $discord->getChannel($interaction->channel_id);
 
                                     # Atualiza o Horário e Fecha o Ponto
@@ -134,11 +133,9 @@ $discord->on('ready', function (Discord $discord) {
 
 
                                     # Salva o Log
-                                    if ($i == false) {
-                                        $channel = $discord->getChannel(LOG_PONTO);
-                                        $channel->sendMessage($builder);
-                                        $i = true;
-                                    }
+                                    $channel = $discord->getChannel(LOG_PONTO);
+                                    $channel->sendMessage($builder);
+                                    $i = true;
                                 };
                             }, $discord);
                         });
