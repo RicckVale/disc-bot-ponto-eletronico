@@ -1,0 +1,13 @@
+<?php
+# TimeZone
+date_default_timezone_set('America/Sao_Paulo');
+# Conexão com o Banco de Dados
+define('BD_SERVIDOR','');
+define('BD_USUARIO','');
+define('BD_SENHA','');
+define('BD_BANCO','');
+# Token do Discord
+define('TOKEN_DISC','');
+define('CANAL_PONTO','');
+define('LOG_PONTO','');
+define('CATEGORIA_PONTO','');
