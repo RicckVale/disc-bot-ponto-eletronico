@@ -20,3 +20,4 @@ Para configurar mude as variaveis de ambiente do arquivo:
 
   E intale o arquivo "bd.sql" no seu banco de dados. ;)
 ```
+    
