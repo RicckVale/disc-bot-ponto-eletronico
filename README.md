@@ -18,5 +18,5 @@ Para configurar mude as variaveis de ambiente do arquivo:
   src/config.php
   (renomei o arquivo config.php.example)
 
-  E intale o arquivo bd.sql no seu banco de dados. ;)
+  E intale o arquivo "bd.sql" no seu banco de dados. ;)
 ```
